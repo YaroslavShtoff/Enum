@@ -1,6 +1,6 @@
 package transport;
 
-public  abstract class Transport  {
+public abstract class Transport {
 
     private final String brand;
     private final String model;
@@ -27,4 +27,7 @@ public  abstract class Transport  {
     public abstract void start();
 
     public abstract void stop();
+
+
+    public abstract void printType();
 }

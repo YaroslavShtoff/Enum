@@ -2,8 +2,18 @@ package transport;
 
 
 public class Car extends Transport implements Competing {
-    public Car(String brand, String model, double engineVolume) {
+    private TypeOfBody typeOfBody;
+    public Car(String brand, String model, double engineVolume, TypeOfBody typeOfBody) {
         super(brand, model, engineVolume);
+        this.typeOfBody = typeOfBody;
+    }
+
+    public TypeOfBody getTypeOfBody() {
+        return typeOfBody;
+    }
+
+    public void setTypeOfBody(TypeOfBody typeOfBody) {
+        this.typeOfBody = typeOfBody;
     }
 
     @Override
@@ -17,6 +27,17 @@ public class Car extends Transport implements Competing {
         System.out.println("Автомобиль \"" + getBrand() +"\" (\"" + getModel() + "\") окончил движение");
 
     }
+
+    @Override
+    public void printType() {
+        if (typeOfBody == null) {
+            System.out.println("Данных по авто не достатаочно");
+        } else {
+            System.out.println("Тип кузовва " + typeOfBody);
+        }
+    }
+
+
     @Override
     public void pitStop() {
         System.out.println(" Автомобиль прошел пит-стоп");
@@ -33,4 +54,5 @@ public class Car extends Transport implements Competing {
         return (int) (Math.random() * 300);
 
     }
+
 }
